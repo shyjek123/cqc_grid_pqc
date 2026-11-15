@@ -1,0 +1,76 @@
+{
+  "max_credits": 5500.0,
+  "quoted_credits": 5455.5024,
+  "jobs": [
+    {
+      "name": "grid-bb84-1",
+      "experiment": "bb84",
+      "payload_key": "bb84",
+      "file": "results/programs/bb84.qasm",
+      "device": "rigetti:rigetti:qpu:cepheus-1-108q",
+      "shots": 500,
+      "estimated_credits": 24.2,
+      "qubits": 16
+    },
+    {
+      "name": "grid-shor-2",
+      "experiment": "shor",
+      "payload_key": "shor",
+      "file": "results/programs/shor.qasm",
+      "device": "rigetti:rigetti:qpu:cepheus-1-108q",
+      "shots": 256,
+      "estimated_credits": 14.3424,
+      "qubits": 8
+    },
+    {
+      "name": "grid-qaoa-3",
+      "experiment": "qaoa",
+      "payload_key": "qaoa",
+      "file": "results/programs/qaoa.qasm",
+      "device": "rigetti:rigetti:qpu:cepheus-1-108q",
+      "shots": 400,
+      "estimated_credits": 20.16,
+      "qubits": 4
+    },
+    {
+      "name": "grid-teleport-4",
+      "experiment": "teleport",
+      "payload_key": "teleport",
+      "file": "results/programs/teleport.qasm",
+      "device": "rigetti:rigetti:qpu:cepheus-1-108q",
+      "shots": 1000,
+      "estimated_credits": 44.4,
+      "qubits": 3
+    },
+    {
+      "name": "grid-grover-5",
+      "experiment": "grover",
+      "payload_key": "grover",
+      "file": "results/programs/grover.qasm",
+      "device": "rigetti:rigetti:qpu:cepheus-1-108q",
+      "shots": 1000,
+      "estimated_credits": 44.4,
+      "qubits": 2
+    },
+    {
+      "name": "grid-shor-6",
+      "experiment": "shor",
+      "payload_key": "shor",
+      "file": "results/programs/shor.qasm",
+      "device": "aws:ionq:qpu:forte-1",
+      "shots": 256,
+      "estimated_credits": 2078.0,
+      "qubits": 8
+    },
+    {
+      "name": "grid-qaoa-7",
+      "experiment": "qaoa",
+      "payload_key": "qaoa",
+      "file": "results/programs/qaoa.qasm",
+      "device": "aws:ionq:qpu:forte-1",
+      "shots": 400,
+      "estimated_credits": 3230.0,
+      "qubits": 4
+    }
+  ]
+}

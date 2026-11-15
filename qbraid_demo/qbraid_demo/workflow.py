@@ -17,7 +17,7 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import circuits, figures
+from . import agent_submit, circuits, figures
 from .report import write_report
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -381,7 +381,7 @@ def _poll(pending, wait_s, trace):
     return records
 
 
-def run_cloud(local, trace, max_credits, run_hardware, wait_s):
+def run_cloud(local, trace, max_credits, run_hardware, wait_s, use_agent=True, agent_wait=240):
     cloud = {
         "ok": False,
         "jobs": [],
@@ -470,7 +470,7 @@ def run_cloud(local, trace, max_credits, run_hardware, wait_s):
 
     hardware_notes = []
     if not run_hardware:
-        hardware_notes.append("Hardware submission is off (QBRAID_RUN_HARDWARE=0).")
+        hardware_notes.append("Hardware submission is off (QBRAID_RUN_HARDWARE=0 or --no-hardware).")
     elif cloud["balance_credits"] is None:
         hardware_notes.append("Hardware not submitted because the credit balance could not be read.")
     else:
@@ -480,72 +480,88 @@ def run_cloud(local, trace, max_credits, run_hardware, wait_s):
         if not qpus:
             hardware_notes.append("No online gate-model QPU is available, so no hardware job was submitted.")
         else:
-            quoted = []
-            for device in qpus:
-                shots = _fit_shots(device, 100)
-                quote = _quote(provider.client, device.qrn, shots)
-                quote["experiment"] = "grover"
-                quote["role"] = "qpu"
-                quote["status"] = device.status.value
-                quote["qubits"] = device.numberQubits
-                cloud["quotes"].append(quote)
-                quoted.append((quote, device, shots))
-            affordable = [
-                item
-                for item in quoted
-                if item[0].get("pricing_available")
-                and item[0].get("estimated_credits") is not None
-                and item[0]["estimated_credits"] <= ceiling + 1e-9
-            ]
-            affordable.sort(key=lambda item: (item[0]["estimated_credits"], item[1].qrn))
-            if not affordable:
-                cheapest = min(
-                    (item[0].get("estimated_credits") for item in quoted if item[0].get("estimated_credits") is not None),
-                    default=None,
+            chosen, all_quotes, leftover = agent_submit.build_hardware_plan(
+                qpus,
+                payloads,
+                lambda qrn, shots: _quote(provider.client, qrn, shots),
+                _fit_shots,
+                ceiling,
+            )
+            cloud["quotes"].extend(all_quotes)
+            quoted_total = sum(float(row.get("estimated_credits") or 0) for row in chosen)
+            cloud["hardware_quoted_credits"] = quoted_total
+            cloud["hardware_credits_left"] = leftover
+            if not chosen:
+                hardware_notes.append(
+                    f"No quoted gate-QPU job fits the ceiling of {ceiling:g} credits. Nothing was submitted."
                 )
-                if cheapest is None:
-                    hardware_notes.append("Every online gate QPU returned an unusable quote. Nothing was submitted.")
-                else:
-                    hardware_notes.append(
-                        f"Cheapest online gate QPU quote is {cheapest:g} credits, above the ceiling of {ceiling:g}. Nothing was submitted."
-                    )
             else:
-                quote, device, shots = affordable[0]
-                remaining = ceiling
-                for key, needed in (("grover", 2), ("teleport", 3)):
-                    if (device.numberQubits or 0) < needed:
-                        continue
-                    job_quote = quote if key == "grover" else _quote(provider.client, device.qrn, shots)
-                    if key != "grover":
-                        job_quote["experiment"] = key
-                        job_quote["role"] = "qpu"
-                        cloud["quotes"].append(job_quote)
-                    cost = job_quote.get("estimated_credits")
-                    if cost is None or cost > remaining + 1e-9:
-                        hardware_notes.append(f"Skipped {key} on {device.qrn}: quote {cost} does not fit the remaining {remaining:g} credits.")
-                        continue
-                    spec = {
-                        "experiment": key,
-                        "payload_key": key,
-                        "qrn": device.qrn,
-                        "shots": shots,
-                        "noise_model": None,
-                        "kind": "qpu",
-                        "qubits": payloads[key]["qubits"],
-                        "estimated_credits": cost,
-                        "quote_reason": f"quote {cost:g} credits, ceiling {ceiling:g}",
-                    }
+                programs = RESULTS / "programs"
+                rows = agent_submit._write_programs(chosen, payloads, programs)
+                plan_path = RESULTS / "hardware_plan.json"
+                plan_path.write_text(
+                    json.dumps({"max_credits": ceiling, "quoted_credits": quoted_total, "jobs": rows}, indent=2),
+                    encoding="utf-8",
+                )
+                task_path = RESULTS / "agent_task.md"
+                task_path.write_text(agent_submit._task_text(rows, ceiling, quoted_total), encoding="utf-8")
+                jsonl = RESULTS / "agent_jobs.jsonl"
+                jsonl.write_text("", encoding="utf-8")
+                _step(
+                    trace,
+                    f"Hardware plan: {len(rows)} QPU jobs, quoted {quoted_total:.2f} credits, ceiling {ceiling:.2f}.",
+                )
+                job_ids = {}
+                launch = None
+                if use_agent:
+                    agent_name = "secure-grid-qpu-" + datetime.now(timezone.utc).strftime("%H%M%S")
+                    cloud["agent_name"] = agent_name
+                    instructions = (
+                        "Read results/agent_task.md and submit each command exactly once "
+                        "with the qBraid CLI. Append results/agent_jobs.jsonl as that file says. "
+                        f"Do not exceed {ceiling:.2f} credits."
+                    )
                     try:
-                        job, recorded = _submit(provider, spec, payloads)
-                        pending.append({"job": job, "spec": recorded, "payload": payloads[key]})
-                        remaining -= cost
-                        hardware_notes.append(
-                            f"Submitted {key} to {device.qrn} ({shots} shots, quote {cost:g} credits): {recorded['job_id']}"
-                        )
-                        _step(trace, hardware_notes[-1])
+                        launch = agent_submit.launch_codeq(ROOT, instructions, agent_name)
+                        cloud["agent_launch"] = launch
+                        _step(trace, f"Launched qBraid codeq agent {agent_name} to submit the hardware plan.")
                     except Exception as exc:
-                        hardware_notes.append(f"Hardware refused {key} on {device.qrn}: {type(exc).__name__}: {exc}")
-                        _step(trace, hardware_notes[-1])
+                        launch = {"returncode": 1, "stderr": f"{type(exc).__name__}: {exc}"}
+                        cloud["agent_launch"] = launch
+                        _step(trace, f"Agent launch failed ({launch['stderr']}). The script will submit with qbraid jobs submit.")
+                    if launch.get("returncode") == 0:
+                        found, transcript = agent_submit.collect_agent_submissions(
+                            rows, jsonl, agent_name, ROOT, agent_wait, lambda message: _step(trace, message)
+                        )
+                        job_ids.update(found)
+                        cloud["agent_transcript_tail"] = transcript[-2000:]
+                        if len(found) < len(rows):
+                            hardware_notes.append(
+                                f"Agent {agent_name} submitted {len(found)} of {len(rows)} jobs. "
+                                "The rest were left unsubmitted so a still-running agent cannot be billed twice. "
+                                "Re-run with --cli-submit only if that agent has stopped."
+                            )
+                    else:
+                        hardware_notes.append("codeq did not start. Submitting the same plan with qbraid jobs submit.")
+                        for row in rows:
+                            try:
+                                job_ids[row["name"]] = agent_submit.submit_with_cli(row, ROOT)
+                            except Exception as exc:
+                                hardware_notes.append(f"CLI refused {row['experiment']} on {row['device']}: {exc}")
+                else:
+                    _step(trace, "Submitting the hardware plan with qbraid jobs submit (--cli-submit).")
+                    for row in rows:
+                        try:
+                            job_ids[row["name"]] = agent_submit.submit_with_cli(row, ROOT)
+                        except Exception as exc:
+                            hardware_notes.append(f"CLI refused {row['experiment']} on {row['device']}: {exc}")
+                wrapped, submit_notes = agent_submit.jobs_from_ids(provider, rows, job_ids, payloads)
+                for item in wrapped:
+                    item["spec"]["submitted_by"] = "qbraid-agent" if use_agent and launch and launch.get("returncode") == 0 else "qbraid-cli"
+                pending.extend(wrapped)
+                hardware_notes.extend(submit_notes)
+                for note in submit_notes:
+                    _step(trace, note)
     cloud["hardware_decision"] = " ".join(hardware_notes) or "No hardware action."
     if hardware_notes and not any("Submitted" in note for note in hardware_notes):
         _step(trace, cloud["hardware_decision"])
@@ -631,14 +647,18 @@ def write_figures(local, jobs):
     return written
 
 
-def run(local_only=False, max_credits=None, run_hardware=None, wait_s=None):
+def run(local_only=False, max_credits=None, run_hardware=None, wait_s=None, use_agent=None, agent_wait=None):
     RESULTS.mkdir(parents=True, exist_ok=True)
     if max_credits is None:
-        max_credits = float(os.environ.get("QBRAID_MAX_CREDITS", "100"))
+        max_credits = float(os.environ.get("QBRAID_MAX_CREDITS", "5500"))
     if run_hardware is None:
         run_hardware = os.environ.get("QBRAID_RUN_HARDWARE", "1") != "0"
     if wait_s is None:
-        wait_s = float(os.environ.get("QBRAID_WAIT_SECONDS", "300"))
+        wait_s = float(os.environ.get("QBRAID_WAIT_SECONDS", "900"))
+    if use_agent is None:
+        use_agent = os.environ.get("QBRAID_USE_AGENT", "1") != "0"
+    if agent_wait is None:
+        agent_wait = float(os.environ.get("QBRAID_AGENT_SECONDS", "240"))
 
     trace = []
     _step(trace, "Start the secure-grid qBraid demo.")
@@ -654,7 +674,9 @@ def run(local_only=False, max_credits=None, run_hardware=None, wait_s=None):
     }
     if not local_only:
         try:
-            cloud = run_cloud(local, trace, max_credits, run_hardware, wait_s)
+            cloud = run_cloud(
+                local, trace, max_credits, run_hardware, wait_s, use_agent=use_agent, agent_wait=agent_wait
+            )
         except Exception as exc:
             cloud["error"] = f"{type(exc).__name__}: {exc}"
             cloud["traceback"] = traceback.format_exc(limit=6)

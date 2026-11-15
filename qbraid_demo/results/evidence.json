@@ -1,0 +1,2678 @@
+{
+  "generated_utc": "2026-11-15 03:58:13 UTC",
+  "source": "qhackathon_secure_grid/src notebooks 1, 2, 2b, 3, and the QAOA circuit from 6",
+  "credit_ceiling": 5500.0,
+  "trace": [
+    {
+      "utc": "2026-11-15 03:42:23 UTC",
+      "message": "Start the secure-grid qBraid demo."
+    },
+    {
+      "utc": "2026-11-15 03:42:23 UTC",
+      "message": "Build the circuits from src/ and run them on Qiskit Aer."
+    },
+    {
+      "utc": "2026-11-15 03:42:25 UTC",
+      "message": "Aer BB84 QBER is 0.000 with no spy and 0.235 when Eve resends every qubit."
+    },
+    {
+      "utc": "2026-11-15 03:42:25 UTC",
+      "message": "Aer Shor returned period 4 and factors [3, 5]."
+    },
+    {
+      "utc": "2026-11-15 03:42:26 UTC",
+      "message": "Listed 43 qBraid devices, 26 online."
+    },
+    {
+      "utc": "2026-11-15 03:42:26 UTC",
+      "message": "Account balance is 5500.00 credits."
+    },
+    {
+      "utc": "2026-11-15 03:42:27 UTC",
+      "message": "Submit 10 free-simulator job(s) in one group."
+    },
+    {
+      "utc": "2026-11-15 03:42:28 UTC",
+      "message": "Submitted bb84 to qbraid:qbraid:sim:qir-sv: qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a24c8f5265fb3f23cf4"
+    },
+    {
+      "utc": "2026-11-15 03:42:29 UTC",
+      "message": "Submitted grover to qbraid:qbraid:sim:qir-sv: qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a24c8f5265fb3f23cf7"
+    },
+    {
+      "utc": "2026-11-15 03:42:29 UTC",
+      "message": "Submitted teleport to qbraid:qbraid:sim:qir-sv: qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a25c8f5265fb3f23cfb"
+    },
+    {
+      "utc": "2026-11-15 03:42:42 UTC",
+      "message": "Submitted shor to qbraid:qbraid:sim:qir-sv: qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a32c8f5265fb3f23d02"
+    },
+    {
+      "utc": "2026-11-15 03:42:43 UTC",
+      "message": "Submitted qaoa to qbraid:qbraid:sim:qir-sv: qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a33c8f5265fb3f23d05"
+    },
+    {
+      "utc": "2026-11-15 03:42:44 UTC",
+      "message": "Submitted bb84 to ionq:ionq:sim:simulator: ionq:ionq:sim:simulator-d708-qjob-6af92a34c8f5265fb3f23d0a"
+    },
+    {
+      "utc": "2026-11-15 03:42:45 UTC",
+      "message": "Submitted grover to ionq:ionq:sim:simulator: ionq:ionq:sim:simulator-d708-qjob-6af92a35c8f5265fb3f23d0f"
+    },
+    {
+      "utc": "2026-11-15 03:42:46 UTC",
+      "message": "Submitted teleport to ionq:ionq:sim:simulator: ionq:ionq:sim:simulator-d708-qjob-6af92a35c8f5265fb3f23d16"
+    },
+    {
+      "utc": "2026-11-15 03:42:46 UTC",
+      "message": "Refused grover on quantinuum:quantinuum:sim:h2-emulator: ProgramConversionError: Failed to convert 'qasm3' to 'qasm2' due to the following error(s):\n\nConversion qasm3 -> qiskit -> qasm2 failed due to exception raised while converting from 'qasm3'.\nMissingOptionalLibraryError: \"The 'qiskit_qasm3_import' library is required to use 'loading from OpenQASM 3'. You can install it with 'pip install qiskit_qasm3_import'.\"\n"
+    },
+    {
+      "utc": "2026-11-15 03:42:46 UTC",
+      "message": "Refused teleport on quantinuum:quantinuum:sim:h2-emulator: ProgramConversionError: Failed to convert 'qasm3' to 'qasm2' due to the following error(s):\n\nConversion qasm3 -> qiskit -> qasm2 failed due to exception raised while converting from 'qasm3'.\nMissingOptionalLibraryError: \"The 'qiskit_qasm3_import' library is required to use 'loading from OpenQASM 3'. You can install it with 'pip install qiskit_qasm3_import'.\"\n"
+    },
+    {
+      "utc": "2026-11-15 03:42:49 UTC",
+      "message": "Hardware plan: 7 QPU jobs, quoted 5455.50 credits, ceiling 5500.00."
+    },
+    {
+      "utc": "2026-11-15 03:42:50 UTC",
+      "message": "Launched qBraid codeq agent secure-grid-qpu-034249 to submit the hardware plan."
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Submitted bb84 to rigetti:rigetti:qpu:cepheus-1-108q (500 shots, quote 24.2 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3bc8f5265fb3f23d1e"
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Submitted shor to rigetti:rigetti:qpu:cepheus-1-108q (256 shots, quote 14.3424 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3dc8f5265fb3f23d21"
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Submitted qaoa to rigetti:rigetti:qpu:cepheus-1-108q (400 shots, quote 20.16 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3fc8f5265fb3f23d24"
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Submitted teleport to rigetti:rigetti:qpu:cepheus-1-108q (1000 shots, quote 44.4 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a41c8f5265fb3f23d28"
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Submitted grover to rigetti:rigetti:qpu:cepheus-1-108q (1000 shots, quote 44.4 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a43c8f5265fb3f23d2b"
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Submitted shor to aws:ionq:qpu:forte-1 (256 shots, quote 2078.0 credits): aws:ionq:qpu:forte-1-d708-qjob-6af92a46c8f5265fb3f23d2e"
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Not submitted: qaoa on aws:ionq:qpu:forte-1."
+    },
+    {
+      "utc": "2026-11-15 03:43:04 UTC",
+      "message": "Poll jobs for up to 900s."
+    },
+    {
+      "utc": "2026-11-15 03:43:08 UTC",
+      "message": "Waiting on 8 job(s): bb84@simulator, grover@simulator, bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q, shor@forte-1"
+    },
+    {
+      "utc": "2026-11-15 03:43:17 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:43:25 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:43:34 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:43:42 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:43:50 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:43:59 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:07 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:16 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:24 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:33 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:41 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:50 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:44:58 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:06 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:15 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:24 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:32 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:40 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:49 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:45:58 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:06 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:14 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:23 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:31 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:40 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:49 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:46:57 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:05 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:14 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:22 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:31 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:39 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:48 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:47:56 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:04 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:13 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:21 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:30 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:38 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:47 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:48:55 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:03 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:12 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:20 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:29 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:37 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:46 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:49:54 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:03 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:11 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:20 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:28 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:36 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:45 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:50:53 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:02 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:10 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:19 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:27 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:35 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:44 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:51:52 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:01 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:09 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:18 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:26 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:35 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:43 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:52:52 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:01 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:09 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:17 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:26 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:34 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:43 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:53:51 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:00 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:08 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:17 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:25 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:33 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:42 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:50 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:54:59 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:07 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:15 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:24 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:32 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:41 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:49 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:55:57 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:06 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:14 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:23 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:31 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:40 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:48 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:56:56 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:05 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:13 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:22 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:30 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:38 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:47 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:57:55 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:58:04 UTC",
+      "message": "Waiting on 5 job(s): bb84@cepheus-1-108q, shor@cepheus-1-108q, qaoa@cepheus-1-108q, teleport@cepheus-1-108q, grover@cepheus-1-108q"
+    },
+    {
+      "utc": "2026-11-15 03:58:12 UTC",
+      "message": "Cloud collection finished with counts from 8 job(s)."
+    },
+    {
+      "utc": "2026-11-15 03:58:12 UTC",
+      "message": "Draw the figures and write the analysis from the counts that came back."
+    }
+  ],
+  "local": {
+    "bb84_sweep": [
+      {
+        "n": 200,
+        "eve_fraction": 0.0,
+        "qber": 0.0,
+        "errors": 0,
+        "sifted": 93,
+        "seed": 42
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.1,
+        "qber": 0.030612244897959183,
+        "errors": 3,
+        "sifted": 98,
+        "seed": 1042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.2,
+        "qber": 0.043859649122807015,
+        "errors": 5,
+        "sifted": 114,
+        "seed": 2042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.3,
+        "qber": 0.04672897196261682,
+        "errors": 5,
+        "sifted": 107,
+        "seed": 3042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.4,
+        "qber": 0.08181818181818182,
+        "errors": 9,
+        "sifted": 110,
+        "seed": 4042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.5,
+        "qber": 0.11956521739130435,
+        "errors": 11,
+        "sifted": 92,
+        "seed": 5042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.6,
+        "qber": 0.1511627906976744,
+        "errors": 13,
+        "sifted": 86,
+        "seed": 6042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.7,
+        "qber": 0.19607843137254902,
+        "errors": 20,
+        "sifted": 102,
+        "seed": 7042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.8,
+        "qber": 0.16666666666666666,
+        "errors": 16,
+        "sifted": 96,
+        "seed": 8042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 0.9,
+        "qber": 0.21568627450980393,
+        "errors": 22,
+        "sifted": 102,
+        "seed": 9042
+      },
+      {
+        "n": 200,
+        "eve_fraction": 1.0,
+        "qber": 0.23529411764705882,
+        "errors": 20,
+        "sifted": 85,
+        "seed": 10042
+      }
+    ],
+    "bb84_rates": {
+      "clean": 0.0,
+      "clean_hits": 0,
+      "clean_total": 1600,
+      "eve_same_basis": 0.0,
+      "eve_same_basis_hits": 0,
+      "eve_same_basis_total": 400,
+      "eve_other_basis": 0.465,
+      "eve_other_basis_hits": 186,
+      "eve_other_basis_total": 400,
+      "eve_all": 0.2325,
+      "qubits": 16
+    },
+    "bb84_shots": 200,
+    "grover": {
+      "marked": 2,
+      "marked_bitstring": "10",
+      "success_count": 1024,
+      "shots": 1024,
+      "success_prob": 1.0,
+      "uniform_prob": 0.25,
+      "top_bitstring": "10",
+      "top_key": 2,
+      "found": true,
+      "n_items": 4,
+      "qubits": 2,
+      "iterations": 1
+    },
+    "grover_counts": {
+      "10": 1024
+    },
+    "grover8": {
+      "marked": 5,
+      "marked_bitstring": "101",
+      "success_count": 958,
+      "shots": 1024,
+      "success_prob": 0.935546875,
+      "uniform_prob": 0.125,
+      "top_bitstring": "101",
+      "top_key": 5,
+      "found": true,
+      "n_items": 8,
+      "qubits": 3,
+      "iterations": 2
+    },
+    "grover8_counts": {
+      "011": 8,
+      "111": 6,
+      "100": 7,
+      "001": 9,
+      "110": 15,
+      "010": 12,
+      "000": 9,
+      "101": 958
+    },
+    "shor": {
+      "n_count": 4,
+      "shots": 1024,
+      "tried": [
+        {
+          "bitstring": "0000",
+          "counts": 277,
+          "phase": 0.0,
+          "period": 1,
+          "seven_pow_mod": 7,
+          "accepted": false
+        },
+        {
+          "bitstring": "1100",
+          "counts": 255,
+          "phase": 0.75,
+          "period": 4,
+          "seven_pow_mod": 1,
+          "accepted": true
+        },
+        {
+          "bitstring": "0100",
+          "counts": 253,
+          "phase": 0.25,
+          "period": 4,
+          "seven_pow_mod": 1,
+          "accepted": false
+        },
+        {
+          "bitstring": "1000",
+          "counts": 239,
+          "phase": 0.5,
+          "period": 2,
+          "seven_pow_mod": 4,
+          "accepted": false
+        }
+      ],
+      "period": 4,
+      "factors": [
+        3,
+        5
+      ],
+      "factored_15": true,
+      "phases": {
+        "0": 277,
+        "0.5": 239,
+        "0.75": 255,
+        "0.25": 253
+      }
+    },
+    "teleport": {
+      "shots": 1024,
+      "q2_zero": 1024,
+      "q2_zero_frac": 1.0,
+      "margins": [
+        {
+          "qubit": 0,
+          "prob_zero": 0.4775390625
+        },
+        {
+          "qubit": 1,
+          "prob_zero": 0.5
+        },
+        {
+          "qubit": 2,
+          "prob_zero": 1.0
+        }
+      ],
+      "link_works": true
+    },
+    "qaoa": {
+      "exact": {
+        "links": [
+          "cc-sub-a",
+          "cc-gen"
+        ],
+        "value": 70.0,
+        "cost": 20.0,
+        "n": 2,
+        "method": "exact"
+      },
+      "greedy": {
+        "links": [
+          "cc-sub-a",
+          "cc-gen"
+        ],
+        "value": 70.0,
+        "cost": 20.0,
+        "n": 2,
+        "method": "greedy"
+      },
+      "qaoa_best_feasible": {
+        "links": [
+          "cc-sub-a",
+          "cc-gen"
+        ],
+        "value": 70.0,
+        "cost": 20.0,
+        "n": 2,
+        "bitstring": "0011",
+        "prob": 0.28515625
+      },
+      "qaoa_most_frequent": {
+        "links": [
+          "cc-sub-a",
+          "cc-gen"
+        ],
+        "value": 70.0,
+        "cost": 20.0,
+        "n": 2,
+        "bitstring": "0011",
+        "prob": 0.28515625
+      },
+      "matches_exact": true,
+      "optimal_prob": 0.28515625,
+      "shots": 1024,
+      "optimal_bitstring": "0011",
+      "p": 1,
+      "gamma": 0.05,
+      "beta": 0.8603981633974483,
+      "train_energy": -2976.53125,
+      "train_shots": 256,
+      "evaluated": 25,
+      "penalty": 9.0,
+      "budget": 20.0,
+      "links": [
+        {
+          "id": "cc-sub-a",
+          "value": 40.0,
+          "cost": 10.0
+        },
+        {
+          "id": "cc-gen",
+          "value": 30.0,
+          "cost": 10.0
+        },
+        {
+          "id": "spoke-1",
+          "value": 12.0,
+          "cost": 10.0
+        },
+        {
+          "id": "ring-1",
+          "value": 8.0,
+          "cost": 10.0
+        }
+      ]
+    }
+  },
+  "cloud": {
+    "ok": true,
+    "jobs": [
+      {
+        "experiment": "grover",
+        "payload_key": "grover",
+        "qrn": "quantinuum:quantinuum:sim:h2-emulator",
+        "shots": 200,
+        "noise_model": null,
+        "kind": "emulator",
+        "qubits": 2,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "status": "REFUSED",
+        "error": "ProgramConversionError: Failed to convert 'qasm3' to 'qasm2' due to the following error(s):\n\nConversion qasm3 -> qiskit -> qasm2 failed due to exception raised while converting from 'qasm3'.\nMissingOptionalLibraryError: \"The 'qiskit_qasm3_import' library is required to use 'loading from OpenQASM 3'. You can install it with 'pip install qiskit_qasm3_import'.\"\n"
+      },
+      {
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "qrn": "quantinuum:quantinuum:sim:h2-emulator",
+        "shots": 200,
+        "noise_model": null,
+        "kind": "emulator",
+        "qubits": 3,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "status": "REFUSED",
+        "error": "ProgramConversionError: Failed to convert 'qasm3' to 'qasm2' due to the following error(s):\n\nConversion qasm3 -> qiskit -> qasm2 failed due to exception raised while converting from 'qasm3'.\nMissingOptionalLibraryError: \"The 'qiskit_qasm3_import' library is required to use 'loading from OpenQASM 3'. You can install it with 'pip install qiskit_qasm3_import'.\"\n"
+      },
+      {
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 200,
+        "noise_model": null,
+        "kind": "simulator",
+        "qubits": 16,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a24c8f5265fb3f23cf4",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "0000000010101010": 13,
+          "0000001010101010": 11,
+          "0000100010101010": 10,
+          "0000101010101010": 11,
+          "0010000010101010": 15,
+          "0010001010101010": 10,
+          "0010100010101010": 14,
+          "0010101010101010": 9,
+          "1000000010101010": 17,
+          "1000001010101010": 14,
+          "1000100010101010": 9,
+          "1000101010101010": 16,
+          "1010000010101010": 12,
+          "1010001010101010": 10,
+          "1010100010101010": 13,
+          "1010101010101010": 16
+        },
+        "rates": {
+          "clean": 0.0,
+          "clean_hits": 0,
+          "clean_total": 1600,
+          "eve_same_basis": 0.0,
+          "eve_same_basis_hits": 0,
+          "eve_same_basis_total": 400,
+          "eve_other_basis": 0.5125,
+          "eve_other_basis_hits": 205,
+          "eve_other_basis_total": 400,
+          "eve_all": 0.25625,
+          "qubits": 16
+        },
+        "analysis_kind": "bb84"
+      },
+      {
+        "experiment": "grover",
+        "payload_key": "grover",
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 200,
+        "noise_model": null,
+        "kind": "simulator",
+        "qubits": 2,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a24c8f5265fb3f23cf7",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "10": 200
+        },
+        "grover": {
+          "marked": 2,
+          "marked_bitstring": "10",
+          "success_count": 200,
+          "shots": 200,
+          "success_prob": 1.0,
+          "uniform_prob": 0.25,
+          "top_bitstring": "10",
+          "top_key": 2,
+          "found": true
+        },
+        "analysis_kind": "grover"
+      },
+      {
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 200,
+        "noise_model": null,
+        "kind": "simulator",
+        "qubits": 3,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a25c8f5265fb3f23cfb",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "000": 56,
+          "001": 53,
+          "010": 48,
+          "011": 43
+        },
+        "teleport": {
+          "shots": 200,
+          "q2_zero": 200,
+          "q2_zero_frac": 1.0,
+          "margins": [
+            {
+              "qubit": 0,
+              "prob_zero": 0.52
+            },
+            {
+              "qubit": 1,
+              "prob_zero": 0.545
+            },
+            {
+              "qubit": 2,
+              "prob_zero": 1.0
+            }
+          ],
+          "link_works": true
+        },
+        "analysis_kind": "teleport"
+      },
+      {
+        "experiment": "shor",
+        "payload_key": "shor",
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 256,
+        "noise_model": null,
+        "kind": "simulator",
+        "qubits": 8,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a32c8f5265fb3f23d02",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "00000000": 56,
+          "00000100": 69,
+          "00001000": 64,
+          "00001100": 67
+        },
+        "shor": {
+          "n_count": 4,
+          "shots": 256,
+          "tried": [
+            {
+              "bitstring": "00000100",
+              "counts": 69,
+              "phase": 0.25,
+              "period": 4,
+              "seven_pow_mod": 1,
+              "accepted": true
+            },
+            {
+              "bitstring": "00001100",
+              "counts": 67,
+              "phase": 0.75,
+              "period": 4,
+              "seven_pow_mod": 1,
+              "accepted": false
+            },
+            {
+              "bitstring": "00001000",
+              "counts": 64,
+              "phase": 0.5,
+              "period": 2,
+              "seven_pow_mod": 4,
+              "accepted": false
+            },
+            {
+              "bitstring": "00000000",
+              "counts": 56,
+              "phase": 0.0,
+              "period": 1,
+              "seven_pow_mod": 7,
+              "accepted": false
+            }
+          ],
+          "period": 4,
+          "factors": [
+            3,
+            5
+          ],
+          "factored_15": true,
+          "phases": {
+            "0": 56,
+            "0.25": 69,
+            "0.5": 64,
+            "0.75": 67
+          }
+        },
+        "analysis_kind": "shor"
+      },
+      {
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 400,
+        "noise_model": null,
+        "kind": "simulator",
+        "qubits": 4,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a33c8f5265fb3f23d05",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "0000": 12,
+          "0001": 48,
+          "0010": 7,
+          "0011": 111,
+          "0100": 33,
+          "0101": 3,
+          "0110": 12,
+          "0111": 1,
+          "1000": 41,
+          "1001": 20,
+          "1010": 4,
+          "1100": 31,
+          "1101": 31,
+          "1110": 41,
+          "1111": 5
+        },
+        "qaoa": {
+          "exact": {
+            "links": [
+              "cc-sub-a",
+              "cc-gen"
+            ],
+            "value": 70.0,
+            "cost": 20.0,
+            "n": 2,
+            "method": "exact"
+          },
+          "greedy": {
+            "links": [
+              "cc-sub-a",
+              "cc-gen"
+            ],
+            "value": 70.0,
+            "cost": 20.0,
+            "n": 2,
+            "method": "greedy"
+          },
+          "qaoa_best_feasible": {
+            "links": [
+              "cc-sub-a",
+              "cc-gen"
+            ],
+            "value": 70.0,
+            "cost": 20.0,
+            "n": 2,
+            "bitstring": "0011",
+            "prob": 0.2775
+          },
+          "qaoa_most_frequent": {
+            "links": [
+              "cc-sub-a",
+              "cc-gen"
+            ],
+            "value": 70.0,
+            "cost": 20.0,
+            "n": 2,
+            "bitstring": "0011",
+            "prob": 0.2775
+          },
+          "matches_exact": true,
+          "optimal_prob": 0.2775,
+          "shots": 400,
+          "optimal_bitstring": "0011"
+        },
+        "analysis_kind": "qaoa"
+      },
+      {
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "qrn": "ionq:ionq:sim:simulator",
+        "shots": 200,
+        "noise_model": "aria-1",
+        "kind": "simulator",
+        "qubits": 3,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "ionq:ionq:sim:simulator-d708-qjob-6af92a35c8f5265fb3f23d16",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "000": 57,
+          "001": 55,
+          "010": 35,
+          "011": 42,
+          "100": 3,
+          "101": 4,
+          "110": 1,
+          "111": 3
+        },
+        "teleport": {
+          "shots": 200,
+          "q2_zero": 189,
+          "q2_zero_frac": 0.945,
+          "margins": [
+            {
+              "qubit": 0,
+              "prob_zero": 0.48
+            },
+            {
+              "qubit": 1,
+              "prob_zero": 0.595
+            },
+            {
+              "qubit": 2,
+              "prob_zero": 0.945
+            }
+          ],
+          "link_works": true
+        },
+        "analysis_kind": "teleport"
+      },
+      {
+        "experiment": "bb84",
+        "payload_key": "bb84_small",
+        "qrn": "ionq:ionq:sim:simulator",
+        "shots": 200,
+        "noise_model": "aria-1",
+        "kind": "simulator",
+        "qubits": 8,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "ionq:ionq:sim:simulator-d708-qjob-6af92a34c8f5265fb3f23d0a",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "00001010": 42,
+          "00101010": 66,
+          "10001010": 42,
+          "10101010": 50
+        },
+        "rates": {
+          "clean": 0.0,
+          "clean_hits": 0,
+          "clean_total": 800,
+          "eve_same_basis": 0.0,
+          "eve_same_basis_hits": 0,
+          "eve_same_basis_total": 200,
+          "eve_other_basis": 0.42,
+          "eve_other_basis_hits": 84,
+          "eve_other_basis_total": 200,
+          "eve_all": 0.21,
+          "qubits": 8
+        },
+        "analysis_kind": "bb84"
+      },
+      {
+        "experiment": "grover",
+        "payload_key": "grover",
+        "qrn": "ionq:ionq:sim:simulator",
+        "shots": 200,
+        "noise_model": "aria-1",
+        "kind": "simulator",
+        "qubits": 2,
+        "quote_reason": "quote is 0 credits",
+        "estimated_credits": 0.0,
+        "job_id": "ionq:ionq:sim:simulator-d708-qjob-6af92a35c8f5265fb3f23d0f",
+        "status": "COMPLETED",
+        "success": true,
+        "counts": {
+          "10": 200
+        },
+        "grover": {
+          "marked": 2,
+          "marked_bitstring": "10",
+          "success_count": 200,
+          "shots": 200,
+          "success_prob": 1.0,
+          "uniform_prob": 0.25,
+          "top_bitstring": "10",
+          "top_key": 2,
+          "found": true
+        },
+        "analysis_kind": "grover"
+      },
+      {
+        "experiment": "shor",
+        "payload_key": "shor",
+        "qrn": "aws:ionq:qpu:forte-1",
+        "shots": 256,
+        "noise_model": null,
+        "kind": "qpu",
+        "qubits": 8,
+        "estimated_credits": 2078.0,
+        "quote_reason": "quote 2078.0 credits",
+        "job_id": "aws:ionq:qpu:forte-1-d708-qjob-6af92a46c8f5265fb3f23d2e",
+        "status": "FAILED",
+        "submitted_by": "qbraid-cli",
+        "success": false,
+        "counts": {}
+      },
+      {
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 500,
+        "noise_model": null,
+        "kind": "qpu",
+        "qubits": 16,
+        "estimated_credits": 24.2,
+        "quote_reason": "quote 24.2 credits",
+        "job_id": "rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3bc8f5265fb3f23d1e",
+        "status": "QUEUED",
+        "submitted_by": "qbraid-cli",
+        "error": "still QUEUED after 900s"
+      },
+      {
+        "experiment": "shor",
+        "payload_key": "shor",
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 256,
+        "noise_model": null,
+        "kind": "qpu",
+        "qubits": 8,
+        "estimated_credits": 14.3424,
+        "quote_reason": "quote 14.3424 credits",
+        "job_id": "rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3dc8f5265fb3f23d21",
+        "status": "QUEUED",
+        "submitted_by": "qbraid-cli",
+        "error": "still QUEUED after 900s"
+      },
+      {
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 400,
+        "noise_model": null,
+        "kind": "qpu",
+        "qubits": 4,
+        "estimated_credits": 20.16,
+        "quote_reason": "quote 20.16 credits",
+        "job_id": "rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3fc8f5265fb3f23d24",
+        "status": "QUEUED",
+        "submitted_by": "qbraid-cli",
+        "error": "still QUEUED after 900s"
+      },
+      {
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 1000,
+        "noise_model": null,
+        "kind": "qpu",
+        "qubits": 3,
+        "estimated_credits": 44.4,
+        "quote_reason": "quote 44.4 credits",
+        "job_id": "rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a41c8f5265fb3f23d28",
+        "status": "QUEUED",
+        "submitted_by": "qbraid-cli",
+        "error": "still QUEUED after 900s"
+      },
+      {
+        "experiment": "grover",
+        "payload_key": "grover",
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 1000,
+        "noise_model": null,
+        "kind": "qpu",
+        "qubits": 2,
+        "estimated_credits": 44.4,
+        "quote_reason": "quote 44.4 credits",
+        "job_id": "rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a43c8f5265fb3f23d2b",
+        "status": "QUEUED",
+        "submitted_by": "qbraid-cli",
+        "error": "still QUEUED after 900s"
+      }
+    ],
+    "devices": [
+      {
+        "qrn": "ibm:ibm:qpu:marrakesh",
+        "name": "Marrakesh",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 156,
+        "queue_depth": 1,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": false
+      },
+      {
+        "qrn": "aws:aws:sim:dm1",
+        "name": "DM1",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 17,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 0,
+        "max_shots": 50000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 7.5
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "ibm:ibm:qpu:pittsburgh",
+        "name": "Pittsburgh",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "UNAVAILABLE",
+        "qubits": 156,
+        "queue_depth": 107,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": false
+      },
+      {
+        "qrn": "azure:pasqal:sim:emu-tn",
+        "name": "Emulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "analog",
+        "status": "OFFLINE",
+        "qubits": 100,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 25.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "aws:iqm:qpu:emerald",
+        "name": "Emerald",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 54,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 20000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 0.16,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:ionq:qpu:forte-1",
+        "name": "Forte 1 (Azure)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 36,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": true
+      },
+      {
+        "qrn": "ibm:ibm:qpu:kingston",
+        "name": "Kingston",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 156,
+        "queue_depth": 223,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": false
+      },
+      {
+        "qrn": "ionq:ionq:qpu:forte-1",
+        "name": "Forte 1",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "UNAVAILABLE",
+        "qubits": 36,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": true
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "name": "QIR Simulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 30,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 2000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:quantinuum:sim:h2-1sc",
+        "name": "H2-1 Syntax Checker",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 56,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:rigetti:qpu:cepheus-1-36q",
+        "name": "Cepheus-1-36Q",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 36,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 12000.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:ionq:sim:simulator",
+        "name": "Simulator (Azure)",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 29,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "ibm:ibm:qpu:miami",
+        "name": "Miami",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 120,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": false
+      },
+      {
+        "qrn": "aws:aqt:qpu:ibex-q1",
+        "name": "IBEX Q1",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "UNAVAILABLE",
+        "qubits": 12,
+        "queue_depth": 1,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 2000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 2.35,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "aws:quera:qpu:aquila",
+        "name": "Aquila",
+        "device_type": "QPU",
+        "paradigm": "analog",
+        "status": "ONLINE",
+        "qubits": 256,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 1000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 1.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:quantinuum:sim:h2-1e",
+        "name": "H2-1 Emulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 56,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:pasqal:qpu:fresnel",
+        "name": "Fresnel",
+        "device_type": "QPU",
+        "paradigm": "analog",
+        "status": "OFFLINE",
+        "qubits": 100,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 500.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-1",
+        "name": "Forte 1 (AWS)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 36,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 100,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 8.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "ionq:ionq:sim:simulator",
+        "name": "Simulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 29,
+        "queue_depth": null,
+        "noise_models": [
+          "ideal",
+          "aria-1",
+          "aria-2",
+          "forte-1",
+          "forte-enterprise-1"
+        ],
+        "min_shots": 1,
+        "max_shots": 1000000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "aws:iqm:qpu:garnet",
+        "name": "Garnet",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "UNAVAILABLE",
+        "qubits": 20,
+        "queue_depth": 39,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 20000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 0.145,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "ibm:ibm:qpu:boston",
+        "name": "Boston",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 156,
+        "queue_depth": 1,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": false
+      },
+      {
+        "qrn": "aws:aws:sim:sv1",
+        "name": "SV1",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 34,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 0,
+        "max_shots": 50000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 7.5
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-enterprise-1",
+        "name": "Forte Enterprise 1 (AWS)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 36,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 100,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 8.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "ibm:ibm:qpu:fez",
+        "name": "Fez",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "UNAVAILABLE",
+        "qubits": 156,
+        "queue_depth": 19,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": false
+      },
+      {
+        "qrn": "azure:rigetti:sim:qvm",
+        "name": "QVM Simulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": null,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "azure:ionq:qpu:forte-enterprise-1",
+        "name": "Forte Enterprise 1 (Azure)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "OFFLINE",
+        "qubits": 36,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "dynamic",
+        "pricing": null,
+        "direct_access": true
+      },
+      {
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "name": "Cepheus-1-108Q",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 107,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 12000.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "qbraid:quobly:sim:alloy-forge",
+        "name": "Alloy Forge Emulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 10,
+        "queue_depth": 0,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 1000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "aws:rigetti:qpu:cepheus-1-108q",
+        "name": "Cepheus-1-108Q (AWS)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "UNAVAILABLE",
+        "qubits": 107,
+        "queue_depth": 8,
+        "noise_models": [],
+        "min_shots": 10,
+        "max_shots": 50000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 30.0,
+          "per_shot": 0.0425,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "openquantum:aqt:qpu:ibex-q1",
+        "name": "IBEX Q1 (OQ)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 12,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 2000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "openquantum:ionq:qpu:forte-1",
+        "name": "Forte 1 (OQ)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 36,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 100,
+        "max_shots": 5000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "openquantum:ionq:qpu:forte-enterprise",
+        "name": "Forte Enterprise 1 (OQ)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 36,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "openquantum:iqm:qpu:emerald",
+        "name": "Emerald (OQ)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 54,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "openquantum:iqm:qpu:garnet",
+        "name": "Garnet (OQ)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 20,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "openquantum:rigetti:qpu:cepheus-1-108q",
+        "name": "Cepheus-1-108Q (OQ)",
+        "device_type": "QPU",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 107,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": null,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "quantinuum:quantinuum:sim:h1-1le",
+        "name": "H1-1LE",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 20,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 10000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "quantinuum:quantinuum:sim:h1-emulator",
+        "name": "H1-Emulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 20,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 10000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "quantinuum:quantinuum:sim:h2-1le",
+        "name": "H2-1LE",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 26,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 10000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "quantinuum:quantinuum:sim:h2-emulator",
+        "name": "H2-Emulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 26,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 10000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:gpu-sv",
+        "name": "GPU State Vector Simulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 35,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 1000000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 5.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:gpu-tn",
+        "name": "GPU Tensor Network Simulator",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 500,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 10000,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 5.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "qperfect:qperfect:sim:mimiq-sv",
+        "name": "QPerfect MIMIQ State Vector",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": 32,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 65536,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      },
+      {
+        "qrn": "qperfect:qperfect:sim:mimiq-mps",
+        "name": "QPerfect MIMIQ MPS",
+        "device_type": "SIMULATOR",
+        "paradigm": "gate_model",
+        "status": "ONLINE",
+        "qubits": null,
+        "queue_depth": null,
+        "noise_models": [],
+        "min_shots": 1,
+        "max_shots": 65536,
+        "pricing_model": "fixed",
+        "pricing": {
+          "per_task": 0.0,
+          "per_shot": 0.0,
+          "per_minute": 0.0
+        },
+        "direct_access": true
+      }
+    ],
+    "quotes": [
+      {
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "bb84",
+        "role": "simulator"
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "grover",
+        "role": "simulator"
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "teleport",
+        "role": "simulator"
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 256,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "shor",
+        "role": "simulator"
+      },
+      {
+        "qrn": "qbraid:qbraid:sim:qir-sv",
+        "shots": 400,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "qaoa",
+        "role": "simulator"
+      },
+      {
+        "qrn": "ionq:ionq:sim:simulator",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "bb84",
+        "role": "simulator"
+      },
+      {
+        "qrn": "ionq:ionq:sim:simulator",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "grover",
+        "role": "simulator"
+      },
+      {
+        "qrn": "ionq:ionq:sim:simulator",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "teleport",
+        "role": "simulator"
+      },
+      {
+        "qrn": "quantinuum:quantinuum:sim:h2-emulator",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "grover",
+        "role": "simulator"
+      },
+      {
+        "qrn": "quantinuum:quantinuum:sim:h2-emulator",
+        "shots": 200,
+        "pricing_available": true,
+        "estimated_credits": 0.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "teleport",
+        "role": "simulator"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:marrakesh",
+        "shots": 500,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "role": "qpu",
+        "qubits": 16,
+        "device_qubits": 156,
+        "device_name": "Marrakesh"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:marrakesh",
+        "shots": 256,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "shor",
+        "payload_key": "shor",
+        "role": "qpu",
+        "qubits": 8,
+        "device_qubits": 156,
+        "device_name": "Marrakesh"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:marrakesh",
+        "shots": 400,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "role": "qpu",
+        "qubits": 4,
+        "device_qubits": 156,
+        "device_name": "Marrakesh"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:marrakesh",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "role": "qpu",
+        "qubits": 3,
+        "device_qubits": 156,
+        "device_name": "Marrakesh"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:marrakesh",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "grover",
+        "payload_key": "grover",
+        "role": "qpu",
+        "qubits": 2,
+        "device_qubits": 156,
+        "device_name": "Marrakesh"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:kingston",
+        "shots": 500,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "role": "qpu",
+        "qubits": 16,
+        "device_qubits": 156,
+        "device_name": "Kingston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:kingston",
+        "shots": 256,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "shor",
+        "payload_key": "shor",
+        "role": "qpu",
+        "qubits": 8,
+        "device_qubits": 156,
+        "device_name": "Kingston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:kingston",
+        "shots": 400,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "role": "qpu",
+        "qubits": 4,
+        "device_qubits": 156,
+        "device_name": "Kingston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:kingston",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "role": "qpu",
+        "qubits": 3,
+        "device_qubits": 156,
+        "device_name": "Kingston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:kingston",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "grover",
+        "payload_key": "grover",
+        "role": "qpu",
+        "qubits": 2,
+        "device_qubits": 156,
+        "device_name": "Kingston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:miami",
+        "shots": 500,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "role": "qpu",
+        "qubits": 16,
+        "device_qubits": 120,
+        "device_name": "Miami"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:miami",
+        "shots": 256,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "shor",
+        "payload_key": "shor",
+        "role": "qpu",
+        "qubits": 8,
+        "device_qubits": 120,
+        "device_name": "Miami"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:miami",
+        "shots": 400,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "role": "qpu",
+        "qubits": 4,
+        "device_qubits": 120,
+        "device_name": "Miami"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:miami",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "role": "qpu",
+        "qubits": 3,
+        "device_qubits": 120,
+        "device_name": "Miami"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:miami",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "grover",
+        "payload_key": "grover",
+        "role": "qpu",
+        "qubits": 2,
+        "device_qubits": 120,
+        "device_name": "Miami"
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-1",
+        "shots": 500,
+        "pricing_available": true,
+        "estimated_credits": 4030.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "role": "qpu",
+        "qubits": 16,
+        "device_qubits": 36,
+        "device_name": "Forte 1 (AWS)"
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-1",
+        "shots": 256,
+        "pricing_available": true,
+        "estimated_credits": 2078.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "shor",
+        "payload_key": "shor",
+        "role": "qpu",
+        "qubits": 8,
+        "device_qubits": 36,
+        "device_name": "Forte 1 (AWS)"
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-1",
+        "shots": 400,
+        "pricing_available": true,
+        "estimated_credits": 3230.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "role": "qpu",
+        "qubits": 4,
+        "device_qubits": 36,
+        "device_name": "Forte 1 (AWS)"
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-1",
+        "shots": 1000,
+        "pricing_available": true,
+        "estimated_credits": 8030.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "role": "qpu",
+        "qubits": 3,
+        "device_qubits": 36,
+        "device_name": "Forte 1 (AWS)"
+      },
+      {
+        "qrn": "aws:ionq:qpu:forte-1",
+        "shots": 1000,
+        "pricing_available": true,
+        "estimated_credits": 8030.0,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "grover",
+        "payload_key": "grover",
+        "role": "qpu",
+        "qubits": 2,
+        "device_qubits": 36,
+        "device_name": "Forte 1 (AWS)"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:boston",
+        "shots": 500,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "role": "qpu",
+        "qubits": 16,
+        "device_qubits": 156,
+        "device_name": "Boston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:boston",
+        "shots": 256,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "shor",
+        "payload_key": "shor",
+        "role": "qpu",
+        "qubits": 8,
+        "device_qubits": 156,
+        "device_name": "Boston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:boston",
+        "shots": 400,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "role": "qpu",
+        "qubits": 4,
+        "device_qubits": 156,
+        "device_name": "Boston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:boston",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "role": "qpu",
+        "qubits": 3,
+        "device_qubits": 156,
+        "device_name": "Boston"
+      },
+      {
+        "qrn": "ibm:ibm:qpu:boston",
+        "shots": 1000,
+        "pricing_available": false,
+        "estimated_credits": null,
+        "reason": "dynamic_pricing_unavailable",
+        "pricing_model": "dynamic",
+        "experiment": "grover",
+        "payload_key": "grover",
+        "role": "qpu",
+        "qubits": 2,
+        "device_qubits": 156,
+        "device_name": "Boston"
+      },
+      {
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 500,
+        "pricing_available": true,
+        "estimated_credits": 24.2,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "bb84",
+        "payload_key": "bb84",
+        "role": "qpu",
+        "qubits": 16,
+        "device_qubits": 107,
+        "device_name": "Cepheus-1-108Q"
+      },
+      {
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 256,
+        "pricing_available": true,
+        "estimated_credits": 14.3424,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "shor",
+        "payload_key": "shor",
+        "role": "qpu",
+        "qubits": 8,
+        "device_qubits": 107,
+        "device_name": "Cepheus-1-108Q"
+      },
+      {
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 400,
+        "pricing_available": true,
+        "estimated_credits": 20.16,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "qaoa",
+        "payload_key": "qaoa",
+        "role": "qpu",
+        "qubits": 4,
+        "device_qubits": 107,
+        "device_name": "Cepheus-1-108Q"
+      },
+      {
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 1000,
+        "pricing_available": true,
+        "estimated_credits": 44.4,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "teleport",
+        "payload_key": "teleport",
+        "role": "qpu",
+        "qubits": 3,
+        "device_qubits": 107,
+        "device_name": "Cepheus-1-108Q"
+      },
+      {
+        "qrn": "rigetti:rigetti:qpu:cepheus-1-108q",
+        "shots": 1000,
+        "pricing_available": true,
+        "estimated_credits": 44.4,
+        "reason": null,
+        "pricing_model": null,
+        "experiment": "grover",
+        "payload_key": "grover",
+        "role": "qpu",
+        "qubits": 2,
+        "device_qubits": 107,
+        "device_name": "Cepheus-1-108Q"
+      }
+    ],
+    "hardware_decision": "codeq did not start. Submitting the same plan with qbraid jobs submit. CLI refused qaoa on aws:ionq:qpu:forte-1: aid credits. Required: 3230.00, Available: 2994.22.\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/bastek/.local/share/mise/installs/python/3.14.6/lib/python3.14/site-packages/qbraid_cli/jobs/app.py\", line 277, in jobs_submit\n    job = run_progress_task(submit_job, description=\"Submitting job...\")\n  File \"/home/bastek/.local/share/mise/installs/python/3.14.6/lib/python3.14/site-packages/qbraid_cli/handlers.py\", line 205, in run_progress_task\n    return handle_error(message=custom_message, include_traceback=include_error_traceback)\n  File \"/home/bastek/.local/share/mise/installs/python/3.14.6/lib/python3.14/site-packages/qbraid_cli/handlers.py\", line 69, in handle_error\n    raise typer.Exit(code=1)\ntyper.exceptions.Exit Submitted bb84 to rigetti:rigetti:qpu:cepheus-1-108q (500 shots, quote 24.2 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3bc8f5265fb3f23d1e Submitted shor to rigetti:rigetti:qpu:cepheus-1-108q (256 shots, quote 14.3424 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3dc8f5265fb3f23d21 Submitted qaoa to rigetti:rigetti:qpu:cepheus-1-108q (400 shots, quote 20.16 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3fc8f5265fb3f23d24 Submitted teleport to rigetti:rigetti:qpu:cepheus-1-108q (1000 shots, quote 44.4 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a41c8f5265fb3f23d28 Submitted grover to rigetti:rigetti:qpu:cepheus-1-108q (1000 shots, quote 44.4 credits): rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a43c8f5265fb3f23d2b Submitted shor to aws:ionq:qpu:forte-1 (256 shots, quote 2078.0 credits): aws:ionq:qpu:forte-1-d708-qjob-6af92a46c8f5265fb3f23d2e Not submitted: qaoa on aws:ionq:qpu:forte-1.",
+    "balance_credits": 5500.0,
+    "credit_ceiling": 5500.0,
+    "group_id": "group:d708-6af92a23a807fbc4243e3003",
+    "credit_ceiling_applied": 5500.0,
+    "hardware_quoted_credits": 5455.5024,
+    "hardware_credits_left": 44.4976000000006,
+    "agent_name": "secure-grid-qpu-034249",
+    "agent_launch": {
+      "command": "/home/bastek/.local/share/mise/installs/python/latest/bin/qbraid agents launch -t codeq --backend tmux --approval ...",
+      "returncode": 1,
+      "stdout": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Launch Error \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 CodeQ uses its provider configuration and does not support permission overrides.                                                                                                                 \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\n",
+      "stderr": ""
+    }
+  },
+  "figures": {
+    "bb84_sweep": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/bb84_qber_sweep.png",
+    "bb84_backends": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/bb84_clean_vs_spy.png",
+    "grover": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/grover_search.png",
+    "shor": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/shor_phases.png",
+    "teleport": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/teleport_link.png",
+    "qaoa": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/qaoa_link_selection.png",
+    "overview": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/results_overview.png",
+    "qpu_gap": "/home/bastek/projects/citadel/research/pqc/hackathon/qhackathon_secure_grid/qbraid_demo/results/figures/gate_qpu_qubits.png"
+  }
+}

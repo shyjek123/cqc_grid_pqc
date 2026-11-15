@@ -1,0 +1,17 @@
+submitted_utc,experiment,device,kind,job_id,shots,est_credits,status,noise_model
+2026-11-15 03:58:13 UTC,grover,quantinuum:quantinuum:sim:h2-emulator,emulator,,200,0.0,REFUSED,
+2026-11-15 03:58:13 UTC,teleport,quantinuum:quantinuum:sim:h2-emulator,emulator,,200,0.0,REFUSED,
+2026-11-15 03:58:13 UTC,bb84,qbraid:qbraid:sim:qir-sv,simulator,qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a24c8f5265fb3f23cf4,200,0.0,COMPLETED,
+2026-11-15 03:58:13 UTC,grover,qbraid:qbraid:sim:qir-sv,simulator,qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a24c8f5265fb3f23cf7,200,0.0,COMPLETED,
+2026-11-15 03:58:13 UTC,teleport,qbraid:qbraid:sim:qir-sv,simulator,qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a25c8f5265fb3f23cfb,200,0.0,COMPLETED,
+2026-11-15 03:58:13 UTC,shor,qbraid:qbraid:sim:qir-sv,simulator,qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a32c8f5265fb3f23d02,256,0.0,COMPLETED,
+2026-11-15 03:58:13 UTC,qaoa,qbraid:qbraid:sim:qir-sv,simulator,qbraid:qbraid:sim:qir-sv-d708-qjob-6af92a33c8f5265fb3f23d05,400,0.0,COMPLETED,
+2026-11-15 03:58:13 UTC,teleport,ionq:ionq:sim:simulator,simulator,ionq:ionq:sim:simulator-d708-qjob-6af92a35c8f5265fb3f23d16,200,0.0,COMPLETED,aria-1
+2026-11-15 03:58:13 UTC,bb84,ionq:ionq:sim:simulator,simulator,ionq:ionq:sim:simulator-d708-qjob-6af92a34c8f5265fb3f23d0a,200,0.0,COMPLETED,aria-1
+2026-11-15 03:58:13 UTC,grover,ionq:ionq:sim:simulator,simulator,ionq:ionq:sim:simulator-d708-qjob-6af92a35c8f5265fb3f23d0f,200,0.0,COMPLETED,aria-1
+2026-11-15 03:58:13 UTC,shor,aws:ionq:qpu:forte-1,qpu,aws:ionq:qpu:forte-1-d708-qjob-6af92a46c8f5265fb3f23d2e,256,2078.0,FAILED,
+2026-11-15 03:58:13 UTC,bb84,rigetti:rigetti:qpu:cepheus-1-108q,qpu,rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3bc8f5265fb3f23d1e,500,24.2,QUEUED,
+2026-11-15 03:58:13 UTC,shor,rigetti:rigetti:qpu:cepheus-1-108q,qpu,rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3dc8f5265fb3f23d21,256,14.3424,QUEUED,
+2026-11-15 03:58:13 UTC,qaoa,rigetti:rigetti:qpu:cepheus-1-108q,qpu,rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a3fc8f5265fb3f23d24,400,20.16,QUEUED,
+2026-11-15 03:58:13 UTC,teleport,rigetti:rigetti:qpu:cepheus-1-108q,qpu,rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a41c8f5265fb3f23d28,1000,44.4,QUEUED,
+2026-11-15 03:58:13 UTC,grover,rigetti:rigetti:qpu:cepheus-1-108q,qpu,rigetti:rigetti:qpu:cepheus-1-108q-d708-qjob-6af92a43c8f5265fb3f23d2b,1000,44.4,QUEUED,

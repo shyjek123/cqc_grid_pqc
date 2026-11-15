@@ -1,48 +1,52 @@
-# Step 2a Write-up
+# Step 2: Harvest Now, Decrypt Later
 
 ## Factoring 15
 
-The period-finding run returned phases 0, 1/4, 1/2, and 3/4.
+The most common measurement was `11000000`, a phase of 0.75 = 3/4, so the period is r = 4. Check: 7⁴ mod 15 = 1. Then gcd(7² − 1, 15) = **3** and gcd(7² + 1, 15) = **5**, and 3 × 5 = 15.
 
-The multiply-by-7-mod-15 step is hand-built for 15. It does not factor 21, and it is not the circuit for RSA-2048. Shor’s algorithm is what makes factoring and discrete logarithms efficient on a large enough quantum computer, which is why RSA and elliptic-curve cryptography fall [1].
+**What this proves:** `c_amod15_a7` is hand-built for N = 15 and a = 7. It doesn't work for N = 21 or a 2048-bit number. The demo shows that a measured period gives the factors. It doesn't show that today's hardware can run the much larger circuit needed for RSA-2048.
 
-## How far the hardware is
+## The hardware gap
 
-On 13 November 2026 the author listed gate-model QPUs on qBraid once each and left out analog machines (QuEra Aquila, Pasqal Fresnel), which cannot run this circuit. That list is an observation, not a published catalog. The largest entry was 156 qubits (IBM Marrakesh, Pittsburgh, Kingston, Fez, and Boston). Also listed: IBM Miami 120; Rigetti Cepheus-1-108Q 107; IQM Emerald 54; IonQ Forte 1, IonQ Forte Enterprise 1, and Rigetti Cepheus-1-36Q 36; IQM Garnet 20; AQT IBEX Q1 12.
+Real gate-based devices on qBraid, each counted once:
 
-Published estimates for factoring RSA-2048, all at a \(10^{-3}\) physical error rate, a 1 µs cycle, and a 10 µs reaction time:
+| Device | Qubits |
+|---|---|
+| Rigetti Cepheus-1-108Q | 107 |
+| IQM Emerald | 54 |
+| IonQ Forte-1, IonQ Forte Enterprise 1, Rigetti Cepheus-1-36Q | 36 |
+| IQM Garnet | 20 |
+| AQT IBEX Q1 | 12 |
 
-| Estimate | Physical qubits | Time | Wiring assumed |
-|---|---|---|---|
-| Gidney and Ekerå, 2019 / Quantum 2021 [2] | 20 million | 8 hours | nearest-neighbor grid |
-| Gidney, 2025 [3] | 897,864 (1,409 logical active; 1,537 including idle workspace) | under a week (about 5 days before rounding) | same nearest-neighbor grid |
-| Webster et al., 2026 [4] | fewer than 100,000 | one month | quantum LDPC; not a nearest-neighbor grid |
+**Largest device: 107 qubits.**
 
-Using the author’s 156-qubit maximum, 897,864 / 156 is about 5,800. That ratio is only a qubit count. It leaves out error correction, the assumed error rate, and hours-to-a-month of fault-tolerant runtime [2][3].
+**Needed for RSA-2048:** about 1,400 logical qubits and 900,000 physical qubits (Gidney, 2025) [1]. In 2019 the estimate was 20 million physical qubits [2]. A 2026 design claims under 100,000, using a different error-correcting code that needs more qubit connections [3]. All three assume a 0.1% gate error rate.
 
-## What a utility should move first
+**The gap:** 900,000 ÷ 107 ≈ 8,400, about 4 orders of magnitude. A qubit count leaves out error correction: today's qubits are noisy, while the attack needs error-corrected ones running for days.
 
-Shor breaks RSA and elliptic-curve key establishment and signatures [1]. Three uses follow.
+## Exposure map
 
-Recorded VPN handshakes (IPsec or TLS) can be decrypted later. Those VPNs are how remote access crosses the electronic security perimeter in NERC CIP-005 [5].
+Shor's algorithm breaks RSA and elliptic-curve cryptography, which utilities use to set up encrypted links and to sign data [4].
 
-The same key establishment sits under wide-area SCADA (DNP3, ICCP/TASE.2, IEC 61850 MMS over TLS or IPsec). Later decryption exposes operating data. A later forged signature can pass as a command. In-substation GOOSE is a different protocol from those wide-area links.
+- **Remote-access VPNs:** traffic recorded today can be decrypted later ("harvest now, decrypt later").
+- **Control-center-to-substation links (SCADA):** recorded data can be read later, and forged signatures could pass as real commands.
+- **Firmware signing on grid devices:** a forged signature could install malicious firmware that stays on the device for years.
 
-Firmware signatures on relays, RTUs, and gateways can be forged later, and the bad image stays for the life of the device. Mosca’s test is whether the years the data must stay secret, plus the years to migrate, already exceed the years until the cryptosystem can be broken [6].
+## Migration plan
 
-NIST will deprecate quantum-vulnerable public-key algorithms after 2030 and disallow them under NIST standards after 2035 [7]. Replacements: ML-KEM (FIPS 203) for key establishment, ML-DSA (FIPS 204) for general signatures, SLH-DSA (FIPS 205) where a stateless hash-based signature is wanted, and LMS or XMSS (SP 800-208) only where the private-key state can be kept from reuse [8][9].
+NIST will phase out RSA and elliptic-curve cryptography after 2030 and ban them under its standards after 2035 [5]. Replacements: ML-KEM for key exchange, and ML-DSA or SLH-DSA for signatures [6].
 
-Order: inventory every RSA and elliptic-curve use; remote-access VPNs first, because traffic can be recorded now and a concentrator is a software change; firmware-signing roots next; wide-area SCADA and ICCP with those certificates; symmetric keys after that. Grover’s algorithm is a square-root search speedup, not a break of AES [10].
+1. **Inventory** every place RSA and elliptic-curve cryptography is used.
+2. **VPNs first:** traffic is being recorded now, and the fix is a software update.
+3. **Firmware signing:** a forged update is a lasting compromise.
+4. **SCADA links:** switch key exchange and signatures.
+5. **Symmetric keys (AES) last:** Grover's algorithm only weakens them (see Step 2b).
 
 ## Sources
 
-1. Shor, “Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer,” SIAM J. Comput. 26, 1484 (1997).
-2. Gidney and Ekerå, “How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits,” Quantum 5, 433 (2021). https://arxiv.org/abs/1905.09749
-3. Gidney, “How to factor 2048 bit RSA integers with less than a million noisy qubits” (2025). https://arxiv.org/abs/2505.15917. 1,409 active logical qubits, 1,537 including idle workspace, 897,864 physical qubits, about 4.96 days, reported as under a week.
-4. Webster et al., “The Pinnacle architecture: reducing the cost of breaking RSA-2048 to 100 000 physical qubits using quantum LDPC codes” (2026). https://arxiv.org/abs/2602.11457. Fewer than 100,000 physical qubits in an expected one month, at \(p = 10^{-3}\), 1 µs cycle, 10 µs reaction time. This needs connectivity beyond a nearest-neighbor grid.
-5. NERC Reliability Standard CIP-005, Cyber Security — Electronic Security Perimeter. https://www.nerc.com/standards
-6. Mosca, “Cybersecurity in an era with quantum computers: will we be ready?,” IEEE Security & Privacy 16, no. 5 (2018).
-7. NIST IR 8547, “Transition to Post-Quantum Cryptography Standards” (2026). https://nvlpubs.nist.gov/nistpubs/ir/2026/NIST.IR.8547.pdf. Deprecate quantum-vulnerable public-key cryptography after 2030; disallow it under NIST standards after 2035.
-8. NIST FIPS 203, 204, and 205 (13 August 2024). https://csrc.nist.gov/projects/post-quantum-cryptography. ML-KEM, ML-DSA, SLH-DSA.
-9. NIST SP 800-208, “Recommendation for Stateful Hash-Based Signature Schemes” (2020). LMS and XMSS. https://csrc.nist.gov/projects/stateful-hash-based-signatures
-10. NIST, Post-quantum cryptography FAQs, “Should we double the key length for AES now?” (added 18 November 2018). https://csrc.nist.gov/projects/post-quantum-cryptography/faqs
+1. Gidney, "How to factor 2048 bit RSA integers with less than a million noisy qubits" (2025). https://arxiv.org/abs/2505.15917
+2. Gidney and Ekerå, "How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits," Quantum 5, 433 (2021). https://arxiv.org/abs/1905.09749
+3. Webster et al., "The Pinnacle architecture: reducing the cost of breaking RSA-2048 to 100 000 physical qubits using quantum LDPC codes" (2026). https://arxiv.org/abs/2602.11457
+4. Shor, "Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer," SIAM J. Comput. 26, 1484 (1997).
+5. NIST IR 8547, "Transition to Post-Quantum Cryptography Standards" (2026). https://nvlpubs.nist.gov/nistpubs/ir/2026/NIST.IR.8547.pdf
+6. NIST FIPS 203, 204, and 205 (2024). https://csrc.nist.gov/projects/post-quantum-cryptography

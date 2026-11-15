@@ -1,45 +1,45 @@
-# Step 3 Write-up
+# Step 3: Secure Grid Backbone
 
-## The link
+## Architecture
 
-Two sites, a control center and a substation. The quantum channel carries one half of an entangled pair. The classical channel carries two correction bits and has to be authenticated.
+A control center and a substation share a fiber link. The fiber carries entangled photon pairs, and an ordinary network carries two correction bits per teleported qubit. The teleported qubits become key material for AES-256.
 
-Teleportation sends an unknown qubit using one shared entangled pair and two classical bits [1]. The notebook’s circuit, all on one chip:
+**Trusted-node problem:** fiber loses photons over distance, so long QKD links use relay stations. Each relay sees the key, so each one must be trusted [1][2]. With teleportation, a middle station only swaps entanglement and passes on classical bits. It never holds the key [3]. This is a proposed design: repeaters like this aren't deployed yet.
 
-1. `ry(1.0)` then `rz(0.7)` on qubit 0, a state that is not 0 or 1.
-2. `h(1)`, `cx(1, 2)` to entangle qubits 1 and 2.
-3. `cx(0, 1)`, `h(0)` for the sender’s Bell measurement.
-4. `cx(1, 2)`, `cz(0, 2)` as the receiver’s corrections, applied as gates rather than `if_test`.
-5. `rz(-0.7)` then `ry(-1.0)` on qubit 2, undoing the state that was sent.
-6. Measure all three qubits last.
+## Assumptions and tradeoffs
 
-On a real link the sender measures first and sends the two bits. Applying the corrections before measuring is the same circuit under the deferred-measurement principle. The check is that qubit 2, the high bit in Qiskit’s print order, is 0. The notebook asks for 1024 shots on the noise-free simulator and 200 shots on IonQ’s simulator with noise model `forte-1`. Those runs are not in the file.
+- The classical channel must be authenticated, because teleportation and QKD don't confirm who's on the other end [1][4]. Use ML-DSA signatures or a pre-shared key.
+- Post-quantum cryptography (ML-KEM, ML-DSA) is the default everywhere, because it's just software [5]. The quantum link adds a second layer only on high-value fiber.
+- If the quantum link fails, traffic falls back to ML-KEM, so the grid stays online.
 
-This shows the logic. It does not show a length of fiber.
+## The working link
 
-## Trusted nodes
+Alice sends qubit 0 to Bob's qubit 2 using an entangled pair (qubits 1 and 2) [6]. To check it, the circuit undoes the sent state on qubit 2. If teleportation worked, qubit 2 reads 0.
 
-Fiber loss is why long QKD uses relays. A trusted relay ends one key and starts the next, so it sees the key. A utility deployment has already been run that way: three QKD systems on a real electric-utility fiber, with trusted nodes passing keys [2].
+| Run | Qubit 2 read 0 |
+|---|---|
+| Qiskit Aer (noise-free) | 1024 / 1024 |
+| IonQ simulator, `forte-1` noise | 196 / 200 (98%) |
 
-A quantum repeater is a different job. An intermediate node swaps entanglement by a Bell measurement and forwards the two classical outcomes [3]. Those outcomes do not reveal the teleported qubit. The node is not holding the key the way a trusted QKD relay does. Repeaters of that kind are a proposed architecture [3], not equipment this design assumes is already in the field. The notebook’s three qubits are on one chip, so it does not demonstrate a repeater.
+IonQ job ID: `ionq:ionq:sim:simulator-d6f1-qjob-6af8fbe9c8f5265fb3f21b24`
 
-Teleportation still does not authenticate the far end. QKD protocols do not provide authentication, so the classical channel still needs a pre-shared key or a post-quantum signature [4][5].
+All three qubits are on one chip, so this shows how the link works, not how far it reaches.
 
-## What to deploy
+## Rollout
 
-NSA does not recommend QKD for National Security Systems unless its limits are overcome, and it points out that trusted relays add cost and insider risk [4]. NCSC does not endorse QKD for UK government or military use, and says not to rely on it alone for critical networks. Quantum-safe cryptography is the primary mitigation [5].
+1. Put ML-KEM on all control-center-to-substation links.
+2. Pilot one quantum link on existing fiber to a critical substation.
+3. Expand only if the pilot stays reliable and falls back cleanly.
 
-So the default is software: ML-KEM (FIPS 203) for key establishment and ML-DSA (FIPS 204) for signatures [6]. NIST deprecates quantum-vulnerable public-key algorithms after 2030 and disallows them under NIST standards after 2035 [7]. The quantum link, if built, is one metro fiber pair where the hardware cost is accepted. If it aborts, traffic uses the ML-KEM path. The two secrets can be mixed with HKDF [8]; that is a design choice, not a claim that either secret alone has been proved sufficient.
+## Cost vs. security
 
-Rollout: inventory the fiber; put hybrid ML-KEM on remote access and wide-area links first, so an abort already has a path; pilot one control-center-to-substation pair; authenticate the classical channel; feed the result into the existing cipher. Do not start with radio. In-substation GOOSE is a different protocol from the wide-area links.
+Post-quantum cryptography is a cheap software update and protects every link. Quantum links need dedicated hardware and fiber, so they're worth it only on a few critical links. Both NSA and the UK's NCSC recommend post-quantum cryptography as the main defense and say not to rely on QKD alone [1][4].
 
 ## Sources
 
-1. Bennett, Brassard, Crépeau, Jozsa, Peres, and Wootters, “Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels,” Phys. Rev. Lett. 70, 1895 (1993).
-2. Evans et al., “Trusted node QKD at an electrical utility,” IEEE Access 9, 105220 (2021). https://arxiv.org/abs/2103.09877
-3. Briegel, Dür, Cirac, and Zoller, “Quantum repeaters: the role of imperfect local operations in quantum communication,” Phys. Rev. Lett. 81, 5932 (1998). Entanglement swapping at the intermediate node.
-4. NSA, “Quantum key distribution (QKD) and quantum cryptography (QC).” https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/
-5. UK NCSC, “Quantum security technologies.” https://www.ncsc.gov.uk/paper/quantum-security-technologies
-6. NIST FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA), 13 August 2024. https://csrc.nist.gov/projects/post-quantum-cryptography
-7. NIST IR 8547 (2026). https://nvlpubs.nist.gov/nistpubs/ir/2026/NIST.IR.8547.pdf
-8. Krawczyk and Eronen, “HMAC-based Extract-and-Expand Key Derivation Function (HKDF),” RFC 5869 (2010). https://www.rfc-editor.org/rfc/rfc5869
+1. NSA, "Quantum Key Distribution (QKD) and Quantum Cryptography (QC)." https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/
+2. Evans et al., "Trusted node QKD at an electrical utility," IEEE Access 9, 105220 (2021). https://arxiv.org/abs/2103.09877
+3. Briegel, Dür, Cirac, and Zoller, "Quantum repeaters," Phys. Rev. Lett. 81, 5932 (1998). https://arxiv.org/abs/quant-ph/9803056
+4. UK NCSC, "Quantum security technologies." https://www.ncsc.gov.uk/paper/quantum-security-technologies
+5. NIST FIPS 203 and 204 (2024). https://csrc.nist.gov/projects/post-quantum-cryptography
+6. Bennett et al., "Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels," Phys. Rev. Lett. 70, 1895 (1993).

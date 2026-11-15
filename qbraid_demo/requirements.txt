@@ -1,0 +1,5 @@
+qbraid>=0.13
+qiskit>=2
+qiskit-aer
+matplotlib
+numpy
